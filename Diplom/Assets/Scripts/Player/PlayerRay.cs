@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRay : MonoBehaviour
 {
+    private Outline _currentOutline;
 
     private void Update()
     {
@@ -20,15 +21,30 @@ public class PlayerRay : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        Debug.Log("triggerray");
+
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("draw");
-            Selectable selectable = hit.collider.gameObject.GetComponent<Selectable>();
-            if (selectable)
+            Outline outline = hit.collider.gameObject.GetComponent<Outline>();
+            if (outline)
             {
-                Debug.Log("nenull");
-                selectable.Select();
+                _currentOutline = outline;
+                outline.OutlineMode = Outline.Mode.OutlineVisible;
+            }
+            else 
+            {
+                if (_currentOutline)
+                {
+                    _currentOutline.OutlineMode = Outline.Mode.OutlineHidden;
+                    _currentOutline = null;
+                }
+            }
+        }
+        else
+        {
+            if (_currentOutline)
+            {
+                _currentOutline.OutlineMode = Outline.Mode.OutlineHidden;
+                _currentOutline = null;
             }
         }
     }

@@ -6,7 +6,7 @@ public class Selectable : MonoBehaviour
 {
     public void Select()
     {
-        GetComponentInChildren<Renderer>().material.color = Color.yellow;
+        GetComponent<Renderer>().material.color = Color.yellow;
     }
 
     public void Deselect()
