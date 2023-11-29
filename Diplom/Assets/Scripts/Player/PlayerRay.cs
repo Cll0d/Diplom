@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerRay : MonoBehaviour
 {
     private Outline _currentOutline;
+    private Detail _currentDetail;
 
     private void Update()
     {
@@ -24,9 +23,12 @@ public class PlayerRay : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            Detail detail = hit.collider.gameObject.GetComponent<Detail>();
             Outline outline = hit.collider.gameObject.GetComponent<Outline>();
             if (outline)
             {
+                EventBus.OnLooked?.Invoke(detail.DetailData.Description);
+                EventBus.OnLookedPanel?.Invoke();
                 _currentOutline = outline;
                 outline.OutlineMode = Outline.Mode.OutlineVisible;
             }
@@ -34,6 +36,7 @@ public class PlayerRay : MonoBehaviour
             {
                 if (_currentOutline)
                 {
+                    EventBus.OnNoLooked?.Invoke();
                     _currentOutline.OutlineMode = Outline.Mode.OutlineHidden;
                     _currentOutline = null;
                 }
@@ -43,6 +46,7 @@ public class PlayerRay : MonoBehaviour
         {
             if (_currentOutline)
             {
+                EventBus.OnNoLooked?.Invoke();
                 _currentOutline.OutlineMode = Outline.Mode.OutlineHidden;
                 _currentOutline = null;
             }
