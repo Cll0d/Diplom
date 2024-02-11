@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff848d475c45c54cbce057e199a8d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 81742ccfdd280d04fa2c914eec155944, type: 2}
+  item: {fileID: 11400000, guid: 72cf4b389c12a2640a2eff75c9588547, type: 2}
   amount: 1
 --- !u!54 &5397408215711666293
 Rigidbody:
