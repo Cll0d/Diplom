@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2645,6 +2645,7 @@ GameObject:
   - component: {fileID: 1863420723}
   - component: {fileID: 1863420725}
   - component: {fileID: 1863420724}
+  - component: {fileID: 1863420726}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2711,6 +2712,20 @@ MonoBehaviour:
   _moveSpeed: 5
   _gravity: 9.8
   _jumpPower: 5
+--- !u!114 &1863420726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863420722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f014c04273c7d41ab205e479115cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformCamera: {fileID: 102037584}
+  _distance: 2
 --- !u!1 &2137212100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,5 +3128,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7371014322219978948, guid: fe1086981183b044ca9307530916400e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4570059865338093854}
   m_SourcePrefab: {fileID: 100100000, guid: fe1086981183b044ca9307530916400e, type: 3}
+--- !u!1 &4570059865338093853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7371014322219978948, guid: fe1086981183b044ca9307530916400e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4570059865338093852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4570059865338093854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570059865338093853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 0.8679245, g: 0.78043824, b: 0.1760413, a: 1}
+  outlineWidth: 8
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
