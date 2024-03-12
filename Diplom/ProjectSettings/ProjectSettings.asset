@@ -884,11 +884,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 546e1f5a-129c-4a40-8b3b-efeb36900635
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Diplom
+  organizationId: unity_ebcd7e1667d952927de1
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

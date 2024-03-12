@@ -7,6 +7,8 @@ public class DragNDrop : MonoBehaviour
     public GameObject _camera;
     GameObject currentItem;
 
+    private GameObject selectedComponent;
+
     private float distance = 3f;
 
     bool canDrag;
