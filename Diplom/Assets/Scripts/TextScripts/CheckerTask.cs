@@ -22,7 +22,6 @@ public class CheckerTask : MonoBehaviour
         {3,_textTask4},
     };
 
-
     private void Awake()
     {
         _currentTask = _textTask1;
