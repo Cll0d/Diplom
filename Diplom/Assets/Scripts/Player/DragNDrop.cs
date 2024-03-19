@@ -52,7 +52,7 @@ public class DragNDrop : MonoBehaviour
         {
             currentItem.transform.parent = null;
             currentItem.GetComponent<Rigidbody>().isKinematic = false;
-            canDrag = false;
+            canDrag = false;;
             currentItem = null;
         }
     }
@@ -64,24 +64,21 @@ public class DragNDrop : MonoBehaviour
             // Проверяем, находится ли компонент над слотом
             RaycastHit hit;
             Debug.Log("1");
-            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit))
+            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, _layerMask))
             {
                 Debug.Log("2");
                 if (hit.collider != null)
                 {
                     Debug.Log("3");
                     // Поместить компонент на позицию слота, если есть совпадение
-                    if (hit.collider.gameObject.CompareTag("Slot"))
-                    {
-                        Debug.Log("4");
-                        selectedComponent.GetComponent<Rigidbody>().isKinematic = true; // Чтобы компонент не падал после размещения
-                        selectedComponent.transform.position = hit.collider.gameObject.transform.position;
-                    }
+                    Debug.Log("4");
+                    currentItem.GetComponent<Rigidbody>().isKinematic = true; // Чтобы компонент не падал после размещения
+                    currentItem.transform.position = hit.collider.gameObject.transform.position;
+                    currentItem.transform.parent = null;
+                    canDrag = false;
+                    currentItem = null;
                 }
             }
-
-            canDrag = false;
-            selectedComponent = null;
         }
     }
 }
