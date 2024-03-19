@@ -35,14 +35,17 @@ public class Building : MonoBehaviour
                 // Проверяем, находится ли компонент над слотом
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+                Debug.Log("1");
                 if (Physics.Raycast(ray, out hit))
                 {
+                    Debug.Log("2");
                     if (hit.collider != null)
                     {
+                        Debug.Log("3");
                         // Поместить компонент на позицию слота, если есть совпадение
                         if (hit.collider.gameObject.CompareTag("Slot"))
                         {
+                            Debug.Log("4");
                             selectedComponent.transform.position = hit.collider.gameObject.transform.position;
                             selectedComponent.GetComponent<Rigidbody>().isKinematic = true; // Чтобы компонент не падал после размещения
                         }
