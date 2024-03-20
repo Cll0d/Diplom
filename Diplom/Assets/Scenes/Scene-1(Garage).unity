@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3767,9 +3767,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 102037583}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &1606373405
 GameObject:
   m_ObjectHideFlags: 0
@@ -4430,9 +4427,10 @@ GameObject:
   - component: {fileID: 1883384263}
   - component: {fileID: 1883384265}
   - component: {fileID: 1883384264}
+  - component: {fileID: 1883384266}
   m_Layer: 8
   m_Name: Cube
-  m_TagString: Slot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4445,8 +4443,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883384262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.387, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.2181, y: 0.2811, z: 0.1583}
+  m_LocalScale: {x: 0.5639, y: 0.5861816, z: 0.6835}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 889986439}
@@ -4502,6 +4500,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883384262}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1883384266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883384262}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1990158213
 GameObject:
   m_ObjectHideFlags: 0
@@ -5183,7 +5202,7 @@ PrefabInstance:
     - target: {fileID: 8427465346679413955, guid: 1b972db1ff298ec47a445b10ca5b7062,
         type: 3}
       propertyPath: m_TagString
-      value: Slot
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5274,8 +5293,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7371014322219978948, guid: fe1086981183b044ca9307530916400e,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371014322219978948, guid: fe1086981183b044ca9307530916400e,
+        type: 3}
       propertyPath: m_TagString
-      value: Slot
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7677075683992939925, guid: fe1086981183b044ca9307530916400e,
         type: 3}
@@ -5382,6 +5406,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 99 SILENT
+      objectReference: {fileID: 0}
+    - target: {fileID: 2441900924576612917, guid: 636eca04a0e5bd640b47db2bf747b730,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

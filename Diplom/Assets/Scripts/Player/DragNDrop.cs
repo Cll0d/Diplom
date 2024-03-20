@@ -8,7 +8,7 @@ public class DragNDrop : MonoBehaviour
     GameObject currentItem;
 
     private GameObject selectedComponent;
-    [SerializeField] private LayerMask _layerMask;
+     private LayerMask _layerMask;
 
     private float distance = 3f;
 
@@ -34,6 +34,7 @@ public class DragNDrop : MonoBehaviour
                 currentItem.GetComponent<Rigidbody>().isKinematic = true;
                 currentItem.transform.parent = transform;
                 currentItem.transform.localPosition = Vector3.zero;
+                currentItem.layer = 2;
 
                 currentItem.transform.localEulerAngles = new Vector3(-20, 180, 0); // Тут настроить положение вещи в руках
 
@@ -53,6 +54,7 @@ public class DragNDrop : MonoBehaviour
             currentItem.transform.parent = null;
             currentItem.GetComponent<Rigidbody>().isKinematic = false;
             canDrag = false;;
+            currentItem.layer = 6;
             currentItem = null;
         }
     }
@@ -63,20 +65,26 @@ public class DragNDrop : MonoBehaviour
         {
             // Проверяем, находится ли компонент над слотом
             RaycastHit hit;
+            Ray ray = new Ray(_camera.transform.position, _camera.transform.forward * 100);
+            Debug.DrawRay(_camera.transform.position, _camera.transform.forward * 100);
             Debug.Log("1");
-            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, _layerMask))
+            if (Physics.Raycast(ray, out hit, distance))
             {
                 Debug.Log("2");
                 if (hit.collider != null)
                 {
                     Debug.Log("3");
                     // Поместить компонент на позицию слота, если есть совпадение
-                    Debug.Log("4");
-                    currentItem.GetComponent<Rigidbody>().isKinematic = true; // Чтобы компонент не падал после размещения
-                    currentItem.transform.position = hit.collider.gameObject.transform.position;
-                    currentItem.transform.parent = null;
-                    canDrag = false;
-                    currentItem = null;
+                    if (hit.collider.gameObject.layer == 8)
+                    {
+                        Debug.Log("4");
+                        currentItem.transform.position = hit.collider.gameObject.transform.position;
+                        currentItem.GetComponent<Rigidbody>().isKinematic = true; // Чтобы компонент не падал после размещения
+                        currentItem.transform.parent = null;
+                        currentItem.layer = 6;
+                        canDrag = false;
+                        currentItem = null;
+                    }
                 }
             }
         }
