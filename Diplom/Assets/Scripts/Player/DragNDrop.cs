@@ -75,7 +75,7 @@ public class DragNDrop : MonoBehaviour
                 {
                     Debug.Log("3");
                     // Поместить компонент на позицию слота, если есть совпадение
-                    if (hit.collider.gameObject.layer == 8)
+                    if (hit.collider.gameObject.layer == 8 && hit.collider.GetComponent<Item>().NameDetail == currentItem.GetComponent<Item>().NameDetail)
                     {
                         Debug.Log("4");
                         currentItem.transform.position = hit.collider.gameObject.transform.position;
