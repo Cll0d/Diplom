@@ -79,6 +79,7 @@ public class DragNDrop : MonoBehaviour
                     {
                         Debug.Log("4");
                         currentItem.transform.position = hit.collider.gameObject.transform.position;
+                        currentItem.transform.rotation = hit.collider.gameObject.transform.rotation;
                         currentItem.GetComponent<Rigidbody>().isKinematic = true; // Чтобы компонент не падал после размещения
                         currentItem.transform.parent = null;
                         currentItem.layer = 6;
