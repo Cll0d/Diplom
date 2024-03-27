@@ -30,7 +30,7 @@ public class RayOutlIne : MonoBehaviour
         {
             var outline = hit.collider.gameObject.GetComponent<Outline>();
             var detail = hit.collider.gameObject.GetComponent<Item>();
-            if (outline != null || detail != null)
+            if (outline != null && detail != null)
             {
                 _textMeshPro.alpha = 175;
                 _textMeshPro.text = detail.NameDetail;
@@ -41,7 +41,6 @@ public class RayOutlIne : MonoBehaviour
             {
                 _cuerrentOutline.OutlineMode = Outline.Mode.OutlineHidden;
                 _cuerrentOutline = null;
-                // _textMeshPro.enabled = false;
                 _textMeshPro.alpha = 0;
             }
         }

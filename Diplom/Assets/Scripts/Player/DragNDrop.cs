@@ -27,7 +27,7 @@ public class DragNDrop : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, distance))
         {
-            if (hit.collider.gameObject.GetComponent<Item>())
+            if (hit.collider.gameObject.GetComponent<Item>() && hit.collider.gameObject.layer == 6)
             {
                 if (canDrag) Drop();
                 currentItem = hit.transform.gameObject;
@@ -53,7 +53,8 @@ public class DragNDrop : MonoBehaviour
         {
             currentItem.transform.parent = null;
             currentItem.GetComponent<Rigidbody>().isKinematic = false;
-            canDrag = false;;
+            canDrag = false;
+            currentItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             currentItem.layer = 6;
             currentItem = null;
         }
