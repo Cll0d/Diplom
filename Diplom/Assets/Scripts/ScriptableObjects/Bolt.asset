@@ -16,5 +16,5 @@ MonoBehaviour:
   itemDescription: 
   itemPrefab: {fileID: 6827560003238017922, guid: 8165705bf0d7a604ca653b68c6531a8a,
     type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7c12f67f29da1674aa6269cbd5d75fdf, type: 3}
   degreeOfDamage: 0
