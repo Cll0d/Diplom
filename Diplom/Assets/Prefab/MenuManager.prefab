@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2215991100018702704}
   - component: {fileID: 5411638244472060975}
+  - component: {fileID: 9074432335732848450}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5411638244472060975
 MonoBehaviour:
@@ -44,3 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16acb85cb9271544e80e650adf3647dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _podveska:
+  - {fileID: 0}
+  _textButton: {fileID: 0}
+--- !u!114 &9074432335732848450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282443728636027310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1aa866545f78ba4e9bc51a578b8a03a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menu: {fileID: 0}
+  _playerController: {fileID: 0}
+  _camertaContoller: {fileID: 0}
