@@ -64,16 +64,16 @@ public class MenuObserver : MonoBehaviour
             {
                 _podveska[i].GetComponent<MeshRenderer>().enabled = false;
                 _textButton.text = "Включить подсказку";
-                _isVisible = false;
+                _isVisiblePodveska = false;
             }
         }
-        if (_isVisiblePodveska == false)
+        else
         {
             for (int i = 0; i < _podveska.Length; i++)
             {
                 _podveska[i].GetComponent<MeshRenderer>().enabled = true;
                 _textButton.text = "Выключить подсказку";
-                _isVisible = true;
+                _isVisiblePodveska = true;
             }
         }
     }
