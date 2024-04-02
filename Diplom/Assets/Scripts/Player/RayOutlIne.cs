@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class RayOutlIne : MonoBehaviour
     [SerializeField] private float _distance = 8;
     [SerializeField] private TMP_Text _textMeshPro;
     private Outline _cuerrentOutline;
+    private Item _currentItem;
 
 
     private void Start()
@@ -28,22 +30,40 @@ public class RayOutlIne : MonoBehaviour
 
         if (Physics.Raycast(transformCamera.transform.position, transformCamera.transform.forward, out hit, _distance))
         {
-            var outline = hit.collider.gameObject.GetComponent<Outline>();
             var detail = hit.collider.gameObject.GetComponent<Item>();
-            if (outline != null && detail != null)
+            Outline outline = hit.collider.gameObject.GetComponent<Outline>();
+            if (outline)
             {
+                if (_cuerrentOutline && _cuerrentOutline != outline)
+                {
+                    _cuerrentOutline.OutlineMode = Outline.Mode.OutlineHidden;
+                    _textMeshPro.alpha = 0;
+                }
+                _cuerrentOutline = outline;
+                outline.OutlineMode = Outline.Mode.OutlineVisible;
                 _textMeshPro.alpha = 175;
                 _textMeshPro.text = detail.NameDetail;
-                _cuerrentOutline = hit.collider.gameObject.GetComponent<Outline>();
-                _cuerrentOutline.OutlineMode = Outline.Mode.OutlineVisible;
             }
-            else if(_cuerrentOutline != null)
+            else
+            {
+                if (_cuerrentOutline)
+                {
+                    _cuerrentOutline.OutlineMode = Outline.Mode.OutlineHidden;
+                    _cuerrentOutline = null;
+                    _textMeshPro.alpha = 0;
+                }
+
+            }
+        }
+        else
+        {
+            if (_cuerrentOutline)
             {
                 _cuerrentOutline.OutlineMode = Outline.Mode.OutlineHidden;
                 _cuerrentOutline = null;
                 _textMeshPro.alpha = 0;
             }
         }
-    }
 
+    }
 }
