@@ -4,8 +4,8 @@ using UnityEngine;
 public class CheckerTask : MonoBehaviour
 {
     [SerializeField] private TMP_Text _textTask;
-    [SerializeField] private string _countRepairNeed;
-    [SerializeField] private string _countRepair;
+    [SerializeField] private string _countRepairNeed = "2";
+    [SerializeField] private string _countRepair = "0";
     private string _textTask1;
     private string _textTask2;
     private string _textTask3;

@@ -37,10 +37,12 @@ public class RayOutlIne : MonoBehaviour
                 if (_cuerrentOutline && _cuerrentOutline != outline)
                 {
                     _cuerrentOutline.OutlineMode = Outline.Mode.OutlineHidden;
+                    _cuerrentOutline.OutlineWidth = 0;
                     _textMeshPro.alpha = 0;
                 }
                 _cuerrentOutline = outline;
                 outline.OutlineMode = Outline.Mode.OutlineVisible;
+                _cuerrentOutline.OutlineWidth = 2;
                 _textMeshPro.alpha = 175;
                 _textMeshPro.text = detail.NameDetail;
             }
@@ -49,6 +51,7 @@ public class RayOutlIne : MonoBehaviour
                 if (_cuerrentOutline)
                 {
                     _cuerrentOutline.OutlineMode = Outline.Mode.OutlineHidden;
+                    _cuerrentOutline.OutlineWidth = 0;
                     _cuerrentOutline = null;
                     _textMeshPro.alpha = 0;
                 }
@@ -60,6 +63,7 @@ public class RayOutlIne : MonoBehaviour
             if (_cuerrentOutline)
             {
                 _cuerrentOutline.OutlineMode = Outline.Mode.OutlineHidden;
+                _cuerrentOutline.OutlineWidth = 0;
                 _cuerrentOutline = null;
                 _textMeshPro.alpha = 0;
             }

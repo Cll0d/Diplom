@@ -7,8 +7,8 @@ public class Item : MonoBehaviour
     public ItemScriptableObject item;
 
     [SerializeField]private string _nameDetail;
-
-    public int amount;
+    public int Amount;
+    public bool IsBroken;
 
     public string NameDetail { get { return _nameDetail; } }
 }

@@ -38,7 +38,7 @@ public class InventoryManager : MonoBehaviour
             {
                 if (hit.collider.gameObject.GetComponent<Item>() != null)
                 {
-                    AddItem(hit.collider.gameObject.GetComponent<Item>().item, hit.collider.gameObject.GetComponent<Item>().amount);
+                    AddItem(hit.collider.gameObject.GetComponent<Item>().item, hit.collider.gameObject.GetComponent<Item>().Amount);
                 }
             }
         }

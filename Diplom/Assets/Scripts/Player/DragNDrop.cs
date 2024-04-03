@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DragNDrop : MonoBehaviour
 {
     public GameObject _camera;
     GameObject currentItem;
+    [SerializeField] private CheckerPodveska _podveska;
+    [SerializeField] List<GameObject> _podveskaArray2;
+    CheckerPodveska chekpod;
 
-    private GameObject selectedComponent;
-     private LayerMask _layerMask;
+    [SerializeField]private GameObject _podveskaVis;
+    public static Action onInserted;
+
 
     private float distance = 3f;
-
     bool canDrag;
+
+    private void Start()
+    {
+       
+    }
 
     private void Update()
     {
@@ -29,16 +38,52 @@ public class DragNDrop : MonoBehaviour
         {
             if (hit.collider.gameObject.GetComponent<Item>() && hit.collider.gameObject.layer == 6)
             {
-                if (canDrag) Drop();
-                currentItem = hit.transform.gameObject;
-                currentItem.GetComponent<Rigidbody>().isKinematic = true;
-                currentItem.transform.parent = transform;
-                currentItem.transform.localPosition = Vector3.zero;
-                currentItem.layer = 2;
+                if (canDrag)
+                {
+                    Drop();
+                }
+                if (hit.collider.gameObject.transform.parent == _podveskaVis.transform)
+                {
+                    Debug.Log("подвеска");
+                   // GameObject disk = GameObject.Find("347 disk.001");
+                    int index = _podveskaArray2.IndexOf(GameObject.Find("347 disk.001"));
+                    for(int i = 0; i <  _podveskaArray2.Count; i++)
+                    {
+                        Debug.Log(i);
+                    }
 
-                currentItem.transform.localEulerAngles = new Vector3(-20, 180, 0); // Тут настроить положение вещи в руках
+                    if (index != -1)
+                    {
+                        Debug.Log("Индекс объекта в списке: " + index);
+                    }
+                    else
+                    {
+                        Debug.Log("Объект не найден в списке");
+                    }
+                    Debug.Log(index);
+                    //_podveskaArray2.RemoveAt(index);
+                    currentItem = hit.transform.gameObject;
+                    currentItem.GetComponent<Rigidbody>().isKinematic = true;
+                    currentItem.transform.parent = transform;
+                    currentItem.transform.localPosition = Vector3.zero;
+                    currentItem.layer = 2;
 
-                canDrag = true;
+                    currentItem.transform.localEulerAngles = new Vector3(-20, 180, 0); // Тут настроить положение вещи в руках
+
+                    canDrag = true;
+                }
+                else
+                {
+                    currentItem = hit.transform.gameObject;
+                    currentItem.GetComponent<Rigidbody>().isKinematic = true;
+                    currentItem.transform.parent = transform;
+                    currentItem.transform.localPosition = Vector3.zero;
+                    currentItem.layer = 2;
+
+                    currentItem.transform.localEulerAngles = new Vector3(-20, 180, 0); // Тут настроить положение вещи в руках
+
+                    canDrag = true;
+                }
             }
         }
     }
@@ -64,28 +109,23 @@ public class DragNDrop : MonoBehaviour
     {
         if (canDrag)
         {
-            // Проверяем, находится ли компонент над слотом
             RaycastHit hit;
             Ray ray = new Ray(_camera.transform.position, _camera.transform.forward * 100);
             Debug.DrawRay(_camera.transform.position, _camera.transform.forward * 100);
-            Debug.Log("1");
             if (Physics.Raycast(ray, out hit, distance))
             {
-                Debug.Log("2");
                 if (hit.collider != null)
                 {
-                    Debug.Log("3");
-                    // Поместить компонент на позицию слота, если есть совпадение
                     if (hit.collider.gameObject.layer == 8 && hit.collider.GetComponent<Item>().NameDetail == currentItem.GetComponent<Item>().NameDetail)
                     {
-                        Debug.Log("4");
                         currentItem.transform.position = hit.collider.gameObject.transform.position;
                         currentItem.transform.rotation = hit.collider.gameObject.transform.rotation;
-                        currentItem.GetComponent<Rigidbody>().isKinematic = true; // Чтобы компонент не падал после размещения
-                        currentItem.transform.parent = null;
+                        currentItem.GetComponent<Rigidbody>().isKinematic = true;
+                        currentItem.transform.parent = _podveska.transform;
                         currentItem.layer = 6;
                         canDrag = false;
                         currentItem = null;
+                        onInserted?.Invoke();
                     }
                 }
             }
