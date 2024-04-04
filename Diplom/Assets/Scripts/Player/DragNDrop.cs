@@ -8,8 +8,7 @@ public class DragNDrop : MonoBehaviour
     public GameObject _camera;
     GameObject currentItem;
     [SerializeField] private CheckerPodveska _podveska;
-    [SerializeField] List<GameObject> _podveskaArray2;
-    CheckerPodveska chekpod;
+    [SerializeField] public  List<GameObject> _podveskaArray2;
 
     [SerializeField]private GameObject _podveskaVis;
     public static Action onInserted;
@@ -18,17 +17,11 @@ public class DragNDrop : MonoBehaviour
     private float distance = 3f;
     bool canDrag;
 
-    private void Start()
-    {
-       
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) Drag();
         if (Input.GetKeyDown(KeyCode.Q)) Drop();
         if (Input.GetKeyDown(KeyCode.T)) Insert();
-
     }
 
     void Drag()
@@ -44,24 +37,9 @@ public class DragNDrop : MonoBehaviour
                 }
                 if (hit.collider.gameObject.transform.parent == _podveskaVis.transform)
                 {
-                    Debug.Log("подвеска");
-                   // GameObject disk = GameObject.Find("347 disk.001");
-                    int index = _podveskaArray2.IndexOf(GameObject.Find("347 disk.001"));
-                    for(int i = 0; i <  _podveskaArray2.Count; i++)
-                    {
-                        Debug.Log(i);
-                    }
+                    int index = _podveskaArray2.IndexOf(hit.collider.gameObject);
 
-                    if (index != -1)
-                    {
-                        Debug.Log("Индекс объекта в списке: " + index);
-                    }
-                    else
-                    {
-                        Debug.Log("Объект не найден в списке");
-                    }
-                    Debug.Log(index);
-                    //_podveskaArray2.RemoveAt(index);
+                    _podveskaArray2.RemoveAt(index);
                     currentItem = hit.transform.gameObject;
                     currentItem.GetComponent<Rigidbody>().isKinematic = true;
                     currentItem.transform.parent = transform;
@@ -124,8 +102,9 @@ public class DragNDrop : MonoBehaviour
                         currentItem.transform.parent = _podveska.transform;
                         currentItem.layer = 6;
                         canDrag = false;
-                        currentItem = null;
+                        _podveskaArray2.Add(currentItem.gameObject);
                         onInserted?.Invoke();
+                        currentItem = null;
                     }
                 }
             }
