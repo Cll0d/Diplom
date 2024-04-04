@@ -5,7 +5,6 @@ using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class RayOutlIne : MonoBehaviour
 {
@@ -24,6 +23,7 @@ public class RayOutlIne : MonoBehaviour
     {
         OutlineObject();
     }
+
     void OutlineObject()
     {
         RaycastHit hit;
