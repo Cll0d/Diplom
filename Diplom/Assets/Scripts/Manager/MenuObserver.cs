@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuObserver : MonoBehaviour
 {
     [SerializeField] private GameObject _menu;
-    [SerializeField] private PlayerController _playerController;
     [SerializeField] private CameraController _camertaContoller;
     [SerializeField] private GameObject[] _podveska;
     [SerializeField] private TMP_Text _textButton;
@@ -21,6 +22,11 @@ public class MenuObserver : MonoBehaviour
         {
             ShowMenu();
         }
+    }
+
+    public void Continue()
+    {
+        SceneManager.LoadScene(1);
     }
 
     private void ShowMenu()
@@ -55,6 +61,11 @@ public class MenuObserver : MonoBehaviour
         _isVisible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 
     public void ChangeDifficulty()
