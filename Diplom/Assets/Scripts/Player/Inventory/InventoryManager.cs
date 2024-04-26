@@ -65,7 +65,7 @@ public class InventoryManager : MonoBehaviour
                 slot.item = _item;
                 slot.amount = _amount;
                 slot.isEmpty = false;
-                slot.SetIcon(_item.icon);
+                //slot.SetIcon(_item.icon);
                 break;
             }
         }
@@ -80,7 +80,7 @@ public class InventoryManager : MonoBehaviour
                 slot.item = null;
                 slot.amount = 0;
                 slot.isEmpty = true;
-                slot.SetIcon(null);
+                //slot.SetIcon(null);
                 icon.GetComponent<Image>().color = new Color(1, 1, 1, 0);
             }
         }

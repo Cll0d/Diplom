@@ -12,5 +12,5 @@ public class ItemScriptableObject : ScriptableObject
 
     public GameObject itemPrefab;
 
-    public Sprite icon;
+    //public Sprite icon;
 }
