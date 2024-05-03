@@ -9898,11 +9898,6 @@ PrefabInstance:
       propertyPath: DragNDrop
       value: 
       objectReference: {fileID: 1571612356420265010}
-    - target: {fileID: 2279400667862268338, guid: 0124b21e5a7217e4fb02102de6c5934f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.508
-      objectReference: {fileID: 0}
     - target: {fileID: 3446916459305906837, guid: 0124b21e5a7217e4fb02102de6c5934f,
         type: 3}
       propertyPath: m_RootOrder
@@ -9957,16 +9952,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501039294525842504, guid: 0124b21e5a7217e4fb02102de6c5934f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.223
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501039294525842504, guid: 0124b21e5a7217e4fb02102de6c5934f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.12
       objectReference: {fileID: 0}
     - target: {fileID: 4083521144747814764, guid: 0124b21e5a7217e4fb02102de6c5934f,
         type: 3}
