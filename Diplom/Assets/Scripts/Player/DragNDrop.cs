@@ -21,7 +21,7 @@ public class DragNDrop : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E)) Drag();
         if (Input.GetKeyDown(KeyCode.Q)) Drop();
-        if (Input.GetKeyDown(KeyCode.T)) Insert();
+        if (Input.GetKeyDown(KeyCode.R)) Insert();
     }
 
     void Drag()
