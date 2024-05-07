@@ -11,8 +11,10 @@ public class MenuObserver : MonoBehaviour
     [SerializeField] private GameObject _menu;
     [SerializeField] private CameraController _camertaContoller;
     [SerializeField] private GameObject[] _podveska;
+    [SerializeField] private GameObject _help;
     [SerializeField] private TMP_Text _textButton;
     private bool _isVisible = false;
+    private bool _isHide = false;
     private bool _isVisiblePodveska = true;
 
 
@@ -21,6 +23,10 @@ public class MenuObserver : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ShowMenu();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            HideHelp(); 
         }
     }
 
@@ -34,7 +40,7 @@ public class MenuObserver : MonoBehaviour
         if (_isVisible == false)
         {
 
-            Pause(); 
+            Pause();
         }
         else
         {
@@ -87,6 +93,18 @@ public class MenuObserver : MonoBehaviour
                 _textButton.text = "Выключить подсказку";
                 _isVisiblePodveska = true;
             }
+        }
+    }
+    public void HideHelp()
+    {
+        if (_isHide == false)
+        {
+            _help.SetActive(false);
+            _isHide = true;
+        }
+        else if(_isHide == true)
+        {
+            _help.SetActive(true);
         }
     }
 }
